@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:#3a7a45;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* FRAME LAPTOP */
+.laptop{
+    width:900px;
+    max-width:100%;
+}
+
+.screen{
+    background:#2d0452;
+    border:16px solid #1b1b1b;
+    border-bottom:0;
+    border-radius:20px 20px 0 0;
+    min-height:520px;
+    position:relative;
+    overflow:hidden;
+    padding:35px;
+}
+
+/* kamera laptop */
+.camera{
+    width:10px;
+    height:10px;
+    background:#ddd;
+    border-radius:50%;
+    position:absolute;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* body laptop */
+.base{
+    height:30px;
+    background:#111;
+    border-radius:0 0 20px 20px;
+    position:relative;
+}
+
+.base::before{
+    content:'';
+    width:140px;
+    height:8px;
+    background:#f2f2f2;
+    border-radius:0 0 10px 10px;
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.base::after{
+    content:'';
+    width:60px;
+    height:10px;
+    background:#ddd;
+    border-radius:8px;
+    position:absolute;
+    left:20px;
+    top:10px;
+}
+
+/* tombol kanan */
+.dots{
+    position:absolute;
+    right:20px;
+    top:10px;
+    display:flex;
+    gap:8px;
+}
+
+.dots span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#ddd;
+}
+
+/* isi layar */
+.topbar{
+    position:absolute;
+    top:12px;
+    right:20px;
+    color:#fff;
+    font-size:12px;
+}
+
+.content{
+    text-align:center;
+    color:white;
+    margin-top:70px;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    width:85px;
+
+    border-radius:80%;
+    margin:auto;
+    overflow:hidden;
+
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    
+}
+
+h1{
+    margin-top:28px;
+    font-size:42px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.school{
+    margin-top:12px;
+    font-size:20px;
+    font-weight:600;
+}
+
+.year{
+    font-size:18px;
+    margin-top:4px;
+}
+
+.info{
+    color:#39ff70;
+    margin-top:22px;
+    font-size:15px;
+    font-weight:500;
+}
+
+.form-box{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0;
+}
+
+.form-box input{
+    width:360px;
+    max-width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    background:#fff;
+}
+
+.form-box button{
+    padding:16px 28px;
+    border:none;
+    background:#7a1fa2;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.form-box button:hover{
+    background:#9c27b0;
+}
+
+/* gunung background */
+.mountain1,
+.mountain2,
+.sun{
+    position:absolute;
+}
+
+.mountain1{
+    bottom:0;
+    left:0;
+    width:320px;
+    height:140px;
+    background:#5b187e;
+    clip-path:polygon(0 100%,0 70%,18% 45%,30% 60%,42% 30%,58% 65%,72% 45%,100% 100%);
+}
+
+.mountain2{
+    bottom:0;
+    right:0;
+    width:420px;
+    height:170px;
+    background:#421060;
+    clip-path:polygon(0 100%,0 60%,20% 30%,40% 55%,55% 20%,75% 50%,100% 100%);
+}
+
+.sun{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    bottom:-45px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* responsive */
+@media(max-width:768px){
+    h1{font-size:28px;}
+    .school{font-size:16px;}
+    .year{font-size:14px;}
+    .form-box{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+    }
+    .form-box input,
+    .form-box button{
+        width:100%;
+        max-width:360px;
+    }
+}
+@keyframes muncul{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="laptop">
+
+    <div class="screen">
+        <div class="camera"></div>
+        <div class="topbar"></div>
+
+        <div class="content">
+            <div class="logo">
+   <img src="logo.png">
+</div>
+
+            <h1>PENGUMUMAN KELULUSAN</h1>
+            <div class="school">SMAN 13 TAKALAR</div>
+            <div class="year">Tahun Pelajaran 2025/2026</div>
+
+            <div class="info">
+                Silahkan Masukkan NISN Pada Form Dibawah
+            </div>
+
+            <div class="form-box">
+                <input type="text" id="nisn" placeholder="Masukkan NISN">
+               <button onclick="cekKelulusan()">CEK KELULUSAN</button>
+               <div id="hasil"></div>
+            </div>
+        </div>
+
+        <div class="mountain1"></div>
+        <div class="mountain2"></div>
+        <div class="sun"></div>
+    </div>
+
+    <div class="base">
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+</div>
+<script>
+const dataSiswa = [
+{nisn:"0085961736", nama:"Abd. Mutthalib", rombel:"XII. Andromeda 1"},
+{nisn:"0082216477", nama:"ABIDIN NUR", rombel:"XII. Andromeda 1"},
+{nisn:"0099510627", nama:"ADRIAN", rombel:"XII. Andromeda 1"},
+{nisn:"3087117118", nama:"AINUN MUKARRAM", rombel:"XII. Andromeda 1"},
+{nisn:"0085961736", nama:"Abd. Mutthalib", rombel:"XII. Andromeda 1"},
+{nisn:"0082216477", nama:"Abidin Nur", rombel:"XII. Andromeda 1"},
+{nisn:"0099510627", nama:"Adrian", rombel:"XII. Andromeda 1"},
+{nisn:"3087117118", nama:"Ainun Mukarram", rombel:"XII. Andromeda 1"},
+{nisn:"0084366463", nama:"Fakhirah Azzahrani Azis", rombel:"XII. Andromeda 1"},
+{nisn:"0075615920", nama:"Fatmawati", rombel:"XII. Andromeda 1"},
+{nisn:"0098565279", nama:"Juswita", rombel:"XII. Andromeda 1"},
+{nisn:"0087849128", nama:"Kurnia Ningsi", rombel:"XII. Andromeda 1"},
+{nisn:"0088943991", nama:"M. Farlan Aldiandsyah", rombel:"XII. Andromeda 1"},
+{nisn:"0085998777", nama:"Muh. Aby", rombel:"XII. Andromeda 1"},
+{nisn:"0082897635", nama:"Muh. Fadil Hamzah", rombel:"XII. Andromeda 1"},
+{nisn:"3088778673", nama:"Muh. Parhan", rombel:"XII. Andromeda 1"},
+{nisn:"0088164210", nama:"Muh. Iman Nishar", rombel:"XII. Andromeda 1"},
+{nisn:"0083482003", nama:"Muh. Rizky", rombel:"XII. Andromeda 1"},
+{nisn:"0086692951", nama:"Muhammad Fadli", rombel:"XII. Andromeda 1"},
+{nisn:"0081120594", nama:"Muhammad Fajar", rombel:"XII. Andromeda 1"},
+{nisn:"3075133897", nama:"Muhammad Rahmat Agusalim", rombel:"XII. Andromeda 1"},
+{nisn:"0086341521", nama:"Muhammad Takbir", rombel:"XII. Andromeda 1"},
+{nisn:"0087349380", nama:"Muhammad Wahyu", rombel:"XII. Andromeda 1"},
+{nisn:"0076701714", nama:"Muhammad Yusuf", rombel:"XII. Andromeda 1"},
+{nisn:"3080503866", nama:"Muliaty Sri Wahyuni", rombel:"XII. Andromeda 1"},
+{nisn:"0083195714", nama:"Mustaqim", rombel:"XII. Andromeda 1"},
+{nisn:"3081997722", nama:"Nur Ariqah", rombel:"XII. Andromeda 1"},
+{nisn:"0085831502", nama:"Nur Ikram Hamdi", rombel:"XII. Andromeda 1"},
+{nisn:"0083889187", nama:"Nurhikma", rombel:"XII. Andromeda 1"},
+{nisn:"0082385793", nama:"Nuriksan", rombel:"XII. Andromeda 1"},
+{nisn:"3071101601", nama:"Putri Sri Ayu Lestari", rombel:"XII. Andromeda 1"},
+{nisn:"0081934320", nama:"Rasti", rombel:"XII. Andromeda 1"},
+{nisn:"0087895536", nama:"Salsaria", rombel:"XII. Andromeda 1"},
+{nisn:"0085681862", nama:"Syahriandi", rombel:"XII. Andromeda 1"},
+{nisn:"3082349951", nama:"Abd. Rahman", rombel:"XII. Andromeda 2"},
+{nisn:"0086783393", nama:"Ahmad Fajar", rombel:"XII. Andromeda 2"},
+{nisn:"0086353769", nama:"Ahmad Najamuddin", rombel:"XII. Andromeda 2"},
+{nisn:"0081340073", nama:"Al-Fahriadi", rombel:"XII. Andromeda 2"},
+{nisn:"0088154633", nama:"Aril Saputra", rombel:"XII. Andromeda 2"},
+{nisn:"0085850211", nama:"Asmaul Husna", rombel:"XII. Andromeda 2"},
+{nisn:"0086624502", nama:"Dian Anugra", rombel:"XII. Andromeda 2"},
+{nisn:"0088762435", nama:"Idil Akbar", rombel:"XII. Andromeda 2"},
+{nisn:"0084841665", nama:"Irma", rombel:"XII. Andromeda 2"},
+{nisn:"0087114990", nama:"Irwandi Saputra", rombel:"XII. Andromeda 2"},
+{nisn:"0086243946", nama:"Israwati", rombel:"XII. Andromeda 2"},
+{nisn:"0087245189", nama:"Jumriana", rombel:"XII. Andromeda 2"},
+{nisn:"0084486436", nama:"Madinah Mustari", rombel:"XII. Andromeda 2"},
+{nisn:"0081214646", nama:"Marsa Sirayuki", rombel:"XII. Andromeda 2"},
+{nisn:"0083969969", nama:"Muh. Yusuf", rombel:"XII. Andromeda 2"},
+{nisn:"0087135739", nama:"Muh. Zulkifli Tahir", rombel:"XII. Andromeda 2"},
+{nisn:"0083658506", nama:"Muh. Indra Dewa", rombel:"XII. Andromeda 2"},
+{nisn:"0085193003", nama:"Muhammad Fardan F.R", rombel:"XII. Andromeda 2"},
+{nisn:"0077848407", nama:"Muhammad Hasim Nur", rombel:"XII. Andromeda 2"},
+{nisn:"0084937431", nama:"Muhammad Irsan", rombel:"XII. Andromeda 2"},
+{nisn:"3087782890", nama:"Muhammad Israjuddin", rombel:"XII. Andromeda 2"},
+{nisn:"0082035923", nama:"Muhammad Syahran", rombel:"XII. Andromeda 2"},
+{nisn:"0077236078", nama:"Nur Alisa Auliya", rombel:"XII. Andromeda 2"},
+{nisn:"0087696927", nama:"Nur Padila B", rombel:"XII. Andromeda 2"},
+{nisn:"0083653466", nama:"Nurhidayanti", rombel:"XII. Andromeda 2"},
+{nisn:"0085943757", nama:"Nurul", rombel:"XII. Andromeda 2"},
+{nisn:"0083454879", nama:"Ramadani", rombel:"XII. Andromeda 2"},
+{nisn:"0081498678", nama:"Resa Ariansa", rombel:"XII. Andromeda 2"},
+{nisn:"0092408243", nama:"Rizky Ardiansyah Putra", rombel:"XII. Andromeda 2"},
+{nisn:"0083634824", nama:"Safira Sriwahyuni", rombel:"XII. Andromeda 2"},
+{nisn:"0084843448", nama:"Sugirman Ady Prawira", rombel:"XII. Andromeda 2"},
+{nisn:"0085870012", nama:"Taqwa", rombel:"XII. Andromeda 2"},
+{nisn:"0086668351", nama:"Wanda Awalia Nur", rombel:"XII. Andromeda 2"},
+{nisn:"0085483320", nama:"Zul Qadri", rombel:"XII. Andromeda 2"},
+{nisn:"0098561415", nama:"Abdullahi Rahmat", rombel:"XII. Andromeda 3"},
+{nisn:"0077205095", nama:"Afdal Purna Bakti", rombel:"XII. Andromeda 3"},
+{nisn:"0089252484", nama:"Al Gazali Saputra", rombel:"XII. Andromeda 3"},
+{nisn:"0087921196", nama:"Erni", rombel:"XII. Andromeda 3"},
+{nisn:"0078601682", nama:"Fitrah Zahratul Sita", rombel:"XII. Andromeda 3"},
+{nisn:"0088477544", nama:"Khairun Nisa", rombel:"XII. Andromeda 3"},
+{nisn:"0085196938", nama:"Kurniawan", rombel:"XII. Andromeda 3"},
+{nisn:"0082871458", nama:"Lukman", rombel:"XII. Andromeda 3"},
+{nisn:"0085779202", nama:"Mariani", rombel:"XII. Andromeda 3"},
+{nisn:"0082853168", nama:"Muh. Faisal", rombel:"XII. Andromeda 3"},
+{nisn:"0084856736", nama:"Muh. Ilham", rombel:"XII. Andromeda 3"},
+{nisn:"0083501788", nama:"Muh. Putra Jayadi", rombel:"XII. Andromeda 3"},
+{nisn:"0094583499", nama:"Muhammad Ilyas", rombel:"XII. Andromeda 3"},
+{nisn:"0088578402", nama:"Muhammad Rezky", rombel:"XII. Andromeda 3"},
+{nisn:"0087806484", nama:"Muhammad Syahrir", rombel:"XII. Andromeda 3"},
+{nisn:"0084829390", nama:"Muhammad Yusuf", rombel:"XII. Andromeda 3"},
+{nisn:"0085987121", nama:"Mutiara", rombel:"XII. Andromeda 3"},
+{nisn:"0079575132", nama:"Nayla Citra", rombel:"XII. Andromeda 3"},
+{nisn:"0084157048", nama:"Nur Annisa", rombel:"XII. Andromeda 3"},
+{nisn:"0085346399", nama:"Nur Hardiyanti", rombel:"XII. Andromeda 3"},
+{nisn:"0101223179", nama:"Nur Wahida", rombel:"XII. Andromeda 3"},
+{nisn:"0084372794", nama:"Nurzalsabila Ramadani", rombel:"XII. Andromeda 3"},
+{nisn:"0087686143", nama:"Radhi Risqullah", rombel:"XII. Andromeda 3"},
+{nisn:"0086431096", nama:"Rasti", rombel:"XII. Andromeda 3"},
+{nisn:"0082271196", nama:"Resky Fausan", rombel:"XII. Andromeda 3"},
+{nisn:"0086162675", nama:"Rifaldi", rombel:"XII. Andromeda 3"},
+{nisn:"3095085119", nama:"Rifky Saputra", rombel:"XII. Andromeda 3"},
+{nisn:"0085369082", nama:"Rini Anriyani Sair", rombel:"XII. Andromeda 3"},
+{nisn:"0087043371", nama:"Sri Andiani", rombel:"XII. Andromeda 3"},
+{nisn:"0083983307", nama:"Wahyu Nur Alamsyah", rombel:"XII. Andromeda 3"},
+{nisn:"0089999605", nama:"Wawansyah", rombel:"XII. Andromeda 3"},
+{nisn:"0084286455", nama:"Zulfikar", rombel:"XII. Andromeda 3"},
+{nisn:"0087176118", nama:"Abdullah Zahran", rombel:"XII. Quantum Sains 1"},
+{nisn:"0086525547", nama:"Alfina", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081491529", nama:"Alifiya Syam", rombel:"XII. Quantum Sains 1"},
+{nisn:"0088862519", nama:"Andi Aura Muftiah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0089718718", nama:"Anggung Aulia Futri", rombel:"XII. Quantum Sains 1"},
+{nisn:"0083448804", nama:"Asriani", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081974772", nama:"Ayunda Tataria Putri", rombel:"XII. Quantum Sains 1"},
+{nisn:"0088273187", nama:"Fajrin", rombel:"XII. Quantum Sains 1"},
+{nisn:"0048792296", nama:"Fitri Ramadhani", rombel:"XII. Quantum Sains 1"},
+{nisn:"0084119197", nama:"Hasir", rombel:"XII. Quantum Sains 1"},
+{nisn:"0086105974", nama:"Herlina", rombel:"XII. Quantum Sains 1"},
+{nisn:"0088173249", nama:"Jumria", rombel:"XII. Quantum Sains 1"},
+{nisn:"0098365162", nama:"Khailah Azzahrah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0083208658", nama:"Mawar", rombel:"XII. Quantum Sains 1"},
+{nisn:"0082544834", nama:"Muh. Syamsardika", rombel:"XII. Quantum Sains 1"},
+{nisn:"0087835190", nama:"Muhammad Rifki", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081620355", nama:"Muhammad Rizky", rombel:"XII. Quantum Sains 1"},
+{nisn:"0088339400", nama:"Muhammad Zulfikri", rombel:"XII. Quantum Sains 1"},
+{nisn:"0089382871", nama:"Nira Amita Talib", rombel:"XII. Quantum Sains 1"},
+{nisn:"0083261282", nama:"Nur Aina", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081607016", nama:"Nur Alfadilah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0097970828", nama:"Nur Anisa", rombel:"XII. Quantum Sains 1"},
+{nisn:"0086883882", nama:"Nur Fadillah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0082644471", nama:"Nur Hasna", rombel:"XII. Quantum Sains 1"},
+{nisn:"0089736531", nama:"Nurul Ikhsani R", rombel:"XII. Quantum Sains 1"},
+{nisn:"0086193104", nama:"Putri Maharani", rombel:"XII. Quantum Sains 1"},
+{nisn:"0097916047", nama:"Rosmita", rombel:"XII. Quantum Sains 1"},
+{nisn:"0087663259", nama:"Sakinah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0083331885", nama:"Siti Rahma", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081936774", nama:"Sitti Annisah", rombel:"XII. Quantum Sains 1"},
+{nisn:"0087982760", nama:"Sri Ayu Irmawati", rombel:"XII. Quantum Sains 1"},
+{nisn:"0083823489", nama:"Wahdhini Ramadhani", rombel:"XII. Quantum Sains 1"},
+{nisn:"0081312276", nama:"Wani", rombel:"XII. Quantum Sains 1"},
+{nisn:"0088867690", nama:"Yuli", rombel:"XII. Quantum Sains 1"},
+{nisn:"0082209516", nama:"Ziskawati", rombel:"XII. Quantum Sains 1"},
+{nisn:"0082187997", nama:"Artika Syahrani Putri", rombel:"XII. Quantum Sains 2"},
+{nisn:"0087489625", nama:"Ayu Andira", rombel:"XII. Quantum Sains 2"},
+{nisn:"0082382778", nama:"Deastri Aslita", rombel:"XII. Quantum Sains 2"},
+{nisn:"0099466762", nama:"Farhan Ananta Syamsuddin", rombel:"XII. Quantum Sains 2"},
+{nisn:"0084709525", nama:"Hasma", rombel:"XII. Quantum Sains 2"},
+{nisn:"0087905644", nama:"Hijrah", rombel:"XII. Quantum Sains 2"},
+{nisn:"0083593873", nama:"Hirawati", rombel:"XII. Quantum Sains 2"},
+{nisn:"0084293104", nama:"Jihan Balqis Putri Nabil", rombel:"XII. Quantum Sains 2"},
+{nisn:"3086006611", nama:"Karmila", rombel:"XII. Quantum Sains 2"},
+{nisn:"0085482378", nama:"Magfira", rombel:"XII. Quantum Sains 2"},
+{nisn:"0085009888", nama:"Muh. Ilham Firdaus", rombel:"XII. Quantum Sains 2"},
+{nisn:"0089790209", nama:"Muhammad Altha Qitzhar", rombel:"XII. Quantum Sains 2"},
+{nisn:"0088487450", nama:"Muhammad Ansyar", rombel:"XII. Quantum Sains 2"},
+{nisn:"0083673652", nama:"Muhammad Iksan", rombel:"XII. Quantum Sains 2"},
+{nisn:"0087131463", nama:"Muhammad Rifky", rombel:"XII. Quantum Sains 2"},
+{nisn:"0087002360", nama:"Muhlisaatul Amelia", rombel:"XII. Quantum Sains 2"},
+{nisn:"0088966573", nama:"Mutmainnah", rombel:"XII. Quantum Sains 2"},
+{nisn:"0083765735", nama:"Nahda Hidayanti", rombel:"XII. Quantum Sains 2"},
+{nisn:"0093309086", nama:"Nur Annisa", rombel:"XII. Quantum Sains 2"},
+{nisn:"0082364101", nama:"Nur Aziza", rombel:"XII. Quantum Sains 2"},
+{nisn:"0082524643", nama:"Nur Insani Lestari", rombel:"XII. Quantum Sains 2"},
+{nisn:"0086260626", nama:"Nur Syafira", rombel:"XII. Quantum Sains 2"},
+{nisn:"0081720205", nama:"Nurannisa", rombel:"XII. Quantum Sains 2"},
+{nisn:"0088051866", nama:"Nurul Aisyah", rombel:"XII. Quantum Sains 2"},
+{nisn:"0087240527", nama:"Nurwahida", rombel:"XII. Quantum Sains 2"},
+{nisn:"0083654896", nama:"Rahmadani", rombel:"XII. Quantum Sains 2"},
+{nisn:"3083067111", nama:"Resky Adityah", rombel:"XII. Quantum Sains 2"},
+{nisn:"0082215057", nama:"Rezki Amelia", rombel:"XII. Quantum Sains 2"},
+{nisn:"0076737839", nama:"Salsabila Putri", rombel:"XII. Quantum Sains 2"},
+{nisn:"0061993656", nama:"Salwa Ayunin Putri", rombel:"XII. Quantum Sains 2"},
+{nisn:"0083928645", nama:"Sansuharni", rombel:"XII. Quantum Sains 2"},
+{nisn:"0081064389", nama:"Sitti Nur Amelia", rombel:"XII. Quantum Sains 2"},
+{nisn:"0086721209", nama:"Sri Ainun Jariyah", rombel:"XII. Quantum Sains 2"},
+{nisn:"0091691932", nama:"Syahrini", rombel:"XII. Quantum Sains 2"},
+{nisn:"0084325487", nama:"Syamsinar", rombel:"XII. Quantum Sains 2"},
+{nisn:"0084317437", nama:"Wahyu Pratama", rombel:"XII. Quantum Sains 2"},
+{nisn:"0085544095", nama:"Andika", rombel:"XII. Quantum Sains 3"},
+{nisn:"0084104222", nama:"Dirga", rombel:"XII. Quantum Sains 3"},
+{nisn:"3082294904", nama:"Diva Latifa", rombel:"XII. Quantum Sains 3"},
+{nisn:"0085619897", nama:"Fathir Abdullah", rombel:"XII. Quantum Sains 3"},
+{nisn:"0086315732", nama:"Fauziah Istiqlaliah", rombel:"XII. Quantum Sains 3"},
+{nisn:"0084945970", nama:"Indriana Tauhid Putri", rombel:"XII. Quantum Sains 3"},
+{nisn:"0083366643", nama:"Irma Sucianti", rombel:"XII. Quantum Sains 3"},
+{nisn:"0085910742", nama:"Irmawati Amnur", rombel:"XII. Quantum Sains 3"},
+{nisn:"0084862836", nama:"Jumriani", rombel:"XII. Quantum Sains 3"},
+{nisn:"0088709193", nama:"Maghfirah Nurman", rombel:"XII. Quantum Sains 3"},
+{nisn:"0087407082", nama:"Maulidya Putri", rombel:"XII. Quantum Sains 3"},
+{nisn:"3074929096", nama:"Muhammad Fatir", rombel:"XII. Quantum Sains 3"},
+{nisn:"0083829275", nama:"Muhammad Sulkifli", rombel:"XII. Quantum Sains 3"},
+{nisn:"0099765845", nama:"Musfira", rombel:"XII. Quantum Sains 3"},
+{nisn:"0082145018", nama:"Nur Annisa", rombel:"XII. Quantum Sains 3"},
+{nisn:"0077170517", nama:"Nur Aulia Syam", rombel:"XII. Quantum Sains 3"},
+{nisn:"0086796021", nama:"Nur Insani Maulida", rombel:"XII. Quantum Sains 3"},
+{nisn:"0089399178", nama:"Nur Rezki Aulia", rombel:"XII. Quantum Sains 3"},
+{nisn:"3095353534", nama:"Nur Wanda", rombel:"XII. Quantum Sains 3"},
+{nisn:"0081838125", nama:"Nurfaizah", rombel:"XII. Quantum Sains 3"},
+{nisn:"0087134148", nama:"Nursasah", rombel:"XII. Quantum Sains 3"},
+{nisn:"0086335819", nama:"Nurul Mutiara Fajriyah", rombel:"XII. Quantum Sains 3"},
+{nisn:"0071042907", nama:"Putri Amelia", rombel:"XII. Quantum Sains 3"},
+{nisn:"0076495403", nama:"Rasul Mattotorang Bachtiar", rombel:"XII. Quantum Sains 3"},
+{nisn:"0084754541", nama:"Rindi Cantika Putri Sahir", rombel:"XII. Quantum Sains 3"},
+{nisn:"0085828185", nama:"Sahwati", rombel:"XII. Quantum Sains 3"},
+{nisn:"0084614848", nama:"Salsabila Ramadani", rombel:"XII. Quantum Sains 3"},
+{nisn:"0088566998", nama:"Sinta", rombel:"XII. Quantum Sains 3"},
+{nisn:"0088112673", nama:"Siti Rabiah Ramadhani", rombel:"XII. Quantum Sains 3"},
+{nisn:"0075505213", nama:"Sofyan", rombel:"XII. Quantum Sains 3"},
+{nisn:"0083777051", nama:"Sri Rahmi Putri", rombel:"XII. Quantum Sains 3"},
+{nisn:"3084588827", nama:"St Hafsyah S", rombel:"XII. Quantum Sains 3"},
+{nisn:"0083416366", nama:"Sulfikar Rauf Salam", rombel:"XII. Quantum Sains 3"},
+{nisn:"0088489214", nama:"Wahda Nia", rombel:"XII. Quantum Sains 3"},
+{nisn:"0089872480", nama:"Wilda Apriliana", rombel:"XII. Quantum Sains 3"},
+{nisn:"0086890824", nama:"Zartika Zainuddin", rombel:"XII. Quantum Sains 3"}
+];
+
+function cekKelulusan(){
+    const nisn = document.getElementById("nisn").value.trim();
+    const siswa = dataSiswa.find(s => s.nisn === nisn);
+
+    if(siswa){
+
+        document.querySelector(".content").innerHTML = `
+        
+        <div style="
+            max-width:650px;
+            margin:auto;
+            background:rgba(255,255,255,0.08);
+            padding:35px;
+            border-radius:25px;
+            backdrop-filter:blur(15px);
+            box-shadow:0 20px 40px rgba(0,0,0,0.35);
+            animation:muncul 0.8s ease;
+        ">
+
+            <img src="logo.png" style="width:85px;margin-bottom:15px;">
+
+            <h1 style="
+                font-size:34px;
+                margin-bottom:10px;
+                color:#fff;
+            ">
+            HASIL PENGUMUMAN
+            </h1>
+
+            <p style="
+                color:#ddd;
+                margin-bottom:25px;
+                font-size:16px;
+            ">
+          KELULUSAN SMAN 13 TAKALAR
+            </p>
+
+            <div style="
+                background:white;
+                color:#222;
+                padding:25px;
+                border-radius:18px;
+                text-align:left;
+                line-height:2;
+                font-size:17px;
+            ">
+                <b>NAMA   :</b> ${siswa.nama}<br>
+                <b>NISN   :</b> ${siswa.nisn}<br>
+                <b>ROMBEL :</b> ${siswa.rombel}
+            </div>
+
+            <div style="
+                margin-top:25px;
+                background:linear-gradient(45deg,#00c853,#69f0ae);
+                color:#fff;
+                font-size:28px;
+                font-weight:700;
+                padding:18px;
+                border-radius:18px;
+                box-shadow:0 10px 25px rgba(0,255,100,.3);
+            ">
+                LULUS
+            </div>
+
+            <button onclick="cetakPDF('${siswa.nama}','${siswa.nisn}','${siswa.rombel}')"
+            style="
+                margin-top:25px;
+                padding:15px 30px;
+                border:none;
+                border-radius:50px;
+                background:linear-gradient(45deg,#7b1fa2,#9c27b0);
+                color:white;
+                font-size:16px;
+                font-weight:600;
+                cursor:pointer;
+                box-shadow:0 10px 20px rgba(0,0,0,.25);
+            ">
+                CETAK BUKTI KELULUSAN
+            </button>
+
+            <br><br>
+
+            <button onclick="location.reload()"
+            style="
+                background:none;
+                border:none;
+                color:#ccc;
+                font-size:15px;
+                cursor:pointer;
+            ">
+                ← Kembali
+            </button>
+
+        </div>
+        `;
+
+    }else{
+        document.getElementById("hasil").innerHTML = `
+        <div style="
+            margin-top:20px;
+            color:#ff5252;
+            font-size:18px;
+            font-weight:600;
+        ">
+        Data tidak ditemukan
+        </div>
+        `;
+        
+    }
+}
+onclick="cetakPDF(...)"
+function cetakPDF(nama, nisn, rombel){
+
+const isi = `
+<html>
+<head>
+<title>Bukti Kelulusan Premium</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',Arial,sans-serif;
+background:linear-gradient(135deg,#1e3c72,#2a5298,#6a11cb);
+padding:30px;
+}
+
+.kartu{
+max-width:850px;
+margin:auto;
+background:white;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 25px 50px rgba(0,0,0,0.25);
+position:relative;
+}
+
+/* header */
+.header{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+padding:35px;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.header img{
+width:75px;
+margin-bottom:12px;
+}
+
+.header h1{
+font-size:34px;
+margin-bottom:8px;
+letter-spacing:1px;
+}
+
+.header p{
+font-size:16px;
+opacity:.95;
+}
+
+/* isi */
+.content{
+padding:45px;
+color:#222;
+}
+
+.badge{
+display:inline-block;
+padding:10px 22px;
+border-radius:50px;
+background:#ecfdf3;
+color:#00a651;
+font-weight:700;
+font-size:15px;
+margin-bottom:25px;
+border:2px solid #b8f5d0;
+}
+
+.nama{
+font-size:34px;
+font-weight:700;
+margin-bottom:8px;
+color:#111;
+}
+
+.sub{
+font-size:17px;
+color:#666;
+margin-bottom:30px;
+}
+
+.box{
+background:#f8f9fc;
+border-radius:18px;
+padding:25px;
+line-height:2;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.lulus{
+text-align:center;
+padding:18px;
+border-radius:18px;
+background:linear-gradient(45deg,#00c853,#69f0ae);
+color:white;
+font-size:34px;
+font-weight:800;
+letter-spacing:3px;
+box-shadow:0 15px 25px rgba(0,200,83,.25);
+margin-bottom:35px;
+}
+
+.pesan{
+font-size:18px;
+line-height:1.8;
+text-align:center;
+color:#444;
+margin-bottom:40px;
+}
+
+.footer{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.ttd{
+text-align:right;
+font-size:16px;
+line-height:1.8;
+margin-left:auto;
+}
+
+.qr{
+padding:14px 18px;
+border-radius:14px;
+background:#111;
+color:#fff;
+font-size:13px;
+}
+
+.print{
+text-align:center;
+padding:25px;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#6a11cb,#2575fc);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+@media print{
+button{display:none;}
+body{padding:0;background:white;}
+.kartu{box-shadow:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="kartu">
+
+<div class="header">
+<img src="logo.png">
+<h1>BUKTI KELULUSAN</h1>
+<p>SMAN 13 TAKALAR • Tahun Pelajaran 2025/2026</p>
+</div>
+
+<div class="content">
+
+<div class="badge">🎓 SELAMAT ANDA DINYATAKAN</div>
+
+<div class="nama">${nama}</div>
+<div class="sub">Peserta Didik Kelas XII</div>
+
+<div class="box">
+<b>NISN :</b> ${nisn}<br>
+<b>ROMBEL :</b> ${rombel}<br>
+<b>STATUS :</b> Lulus
+</div>
+
+<div class="lulus">
+LULUS
+</div>
+
+<div class="pesan">
+Selamat!
+Berdasarkan hasil rapat dewan guru, Anda dinyatakan LULUS dari SMAN 13 Takalar Tahun Pelajaran 2025/2026.
+Semoga ilmu yang diperoleh menjadi bekal meraih masa depan gemilang.
+</div>
+
+<div class="footer">
+
+<div class="qr">
+VERIFIKASI<br>${nisn}
+</div>
+
+
+</div>
+
+</div>
+
+<div class="print">
+<button onclick="window.print()">🖨 Cetak / Simpan PDF</button>
+</div>
+
+</div>
+
+</body>
+</html>
+`;
+
+const win = window.open('', '', 'width=1000,height=900');
+win.document.write(isi);
+win.document.close();
+
+}
+</script>
+
+</body>
+</html>
